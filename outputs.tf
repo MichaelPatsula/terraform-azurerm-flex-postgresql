@@ -15,9 +15,9 @@ output "private_dns_zone_id" {
 }
 
 output "subnet_id" {
-  value = var.vnet_create ? azurerm_subnet.pgsql[0].id : data.azurerm_subnet.pgsql[0].id
+  value = var.vnet_create == null ? null : var.vnet_create ? azurerm_subnet.pgsql[0].id : data.azurerm_subnet.pgsql[0].id
 }
 
 output "virtual_network_id" {
-  value = var.vnet_create ? azurerm_virtual_network.pgsql[0].id : data.azurerm_virtual_network.pgsql[0].id
+  value = var.vnet_create == null ? null : var.vnet_create ? azurerm_virtual_network.pgsql[0].id : data.azurerm_virtual_network.pgsql[0].id
 }

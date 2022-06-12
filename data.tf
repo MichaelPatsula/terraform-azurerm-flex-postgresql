@@ -42,14 +42,14 @@ data "azurerm_storage_account" "pointer_logging_name" {
 #########################################################
 
 data "azurerm_virtual_network" "pgsql" {
-  count = (var.vnet_create == false) ? 1 : 0
+  count = var.vnet_create == false ? 1 : 0
 
   name                = var.vnet_name
   resource_group_name = var.vnet_rg
 }
 
 data "azurerm_subnet" "pgsql" {
-  count = (var.vnet_create == false) ? 1 : 0
+  count = var.vnet_create == false ? 1 : 0
 
   name                 = var.subnet_name
   virtual_network_name = var.vnet_name
