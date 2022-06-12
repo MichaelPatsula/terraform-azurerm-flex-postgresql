@@ -17,7 +17,7 @@ resource "azurerm_storage_account" "pgsql" {
   network_rules {
     default_action             = var.subnet_id == null ? "Allow" : "Deny"
     ip_rules                   = var.ip_rules
-    virtual_network_subnet_ids = [var.subnet_id]
+    virtual_network_subnet_ids = var.subnet_id == null ? [] : [var.subnet_id]
     bypass                     = ["AzureServices"]
   }
 
