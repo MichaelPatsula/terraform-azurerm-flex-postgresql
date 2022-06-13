@@ -20,20 +20,6 @@ data "azurerm_key_vault_secret" "pointer_sqladmin_password" {
   key_vault_id = data.azurerm_key_vault.pointer[count.index].id
 }
 
-data "azurerm_key_vault_secret" "pointer_logging_name" {
-  count = var.kv_pointer_enable ? 1 : 0
-
-  name         = var.kv_pointer_logging_name
-  key_vault_id = data.azurerm_key_vault.pointer[count.index].id
-}
-
-data "azurerm_storage_account" "pointer_logging_name" {
-  count = var.kv_pointer_enable ? 1 : 0
-
-  name                = data.azurerm_key_vault_secret.pointer_logging_name[count.index].value
-  resource_group_name = var.kv_pointer_logging_rg
-}
-
 #########################################################
 # vnet_create (used for storage account network rule)
 # => ``null` then no vnet created or attached (default)

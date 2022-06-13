@@ -91,16 +91,6 @@ variable "kv_pointer_rg" {
   default     = null
 }
 
-variable "kv_pointer_logging_name" {
-  description = "(Optional) The logging name to be looked up in key vault when kv_pointer_enable is set to `true`."
-  default     = null
-}
-
-variable "kv_pointer_logging_rg" {
-  description = "(Optional) The logging resource group name to be used when kv_pointer_enable is set to `true`."
-  default     = null
-}
-
 variable "kv_pointer_sqladmin_password" {
   description = "(Optional) The sqladmin password to be looked up in key vault when kv_pointer_enable is set to `true`."
   default     = null
