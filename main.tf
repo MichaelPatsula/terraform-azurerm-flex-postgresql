@@ -19,7 +19,8 @@ resource "azurerm_postgresql_flexible_server" "pgsql" {
 
   lifecycle {
     ignore_changes = [
-      tags
+      tags,
+      zone
     ]
   }
 
